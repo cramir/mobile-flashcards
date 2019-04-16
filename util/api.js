@@ -58,9 +58,9 @@ export function addCardToDeck(id, card) {
             }
         });
         AsyncStorage.setItem(storageKey, JSON.stringify(newData))
-    }).done()
+    })
 }
 
 export function updateDecks(decks){
-    return AsyncStorage.setItem(storageKey, JSON.stringify(decks)).done();
+    return AsyncStorage.setItem(storageKey, JSON.stringify(decks));
 }

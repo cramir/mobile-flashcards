@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state, ownProps){
-    const index = ownProps.navigation.state.params.index;
+    const index = ownProps.navigation.state.params ? ownProps.navigation.state.params.index : Object.keys(state.decks).length - 1;
     return {deck: {
             ...state.decks[index],
             index

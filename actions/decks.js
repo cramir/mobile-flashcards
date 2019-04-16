@@ -34,8 +34,8 @@ export function handleAddDeck(deck) {
         const {decks} = getState();
         const deckTemp = Object.assign({},Object.values(decks).concat({title: deck, cards: []}));
         //updateDecks(Object.assign({},Object.values(decks).concat(deckTemp)));
-        updateDecks(deckTemp);
-        dispatch(addDeck(deckTemp));
+        updateDecks(deckTemp).then(()=>dispatch(addDeck(deckTemp)));
+        //dispatch(addDeck(deckTemp));
     }
 }
 

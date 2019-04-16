@@ -32,7 +32,8 @@ class AddDeck extends Component {
                 <Btn onPress={() => {
                     if(DeckName.trim() !== "") {
                         dispatch(handleAddDeck(DeckName));
-                        navigation.goBack();
+                        //@todo: fix this as it is a bit hacky. Should ensure new deck has been added before navigating
+                        navigation.navigate("Deck");
                     }else{
                         this.setState({noBlanks:true})
                     }
