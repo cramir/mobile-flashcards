@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {FlatList, StyleSheet, View, Text} from 'react-native';
-import {bindActionCreators} from 'redux';
+import {StyleSheet, View, Text} from 'react-native';
 import {connect} from 'react-redux';
 import Btn from './Btn';
 
@@ -21,6 +20,7 @@ class Quiz extends Component {
             return {
                 showQuestion: true,
                 questionN: state.questionN + 1,
+                score: e === "correct" ? state.score + 1 : state.score,
             }
         })
     };
@@ -70,10 +70,10 @@ class Quiz extends Component {
                             {showQuestion ? "Show Answer" : "Show Question"}
                         </Btn>
                         <View style={styles.btnView}>
-                            <Btn style={styles.correctBtn} onPress={this.nextCard} name={"correct"}>
+                            <Btn style={styles.correctBtn} onPress={this.nextCard.bind(this,"correct")} name={"correct"}>
                                 Correct!
                             </Btn>
-                            <Btn style={styles.incorrectBtn} onPress={this.nextCard} name={"incorrect"}>
+                            <Btn style={styles.incorrectBtn} onPress={this.nextCard.bind(this,"incorrect")} name={"incorrect"}>
                                 Incorrect!
                             </Btn>
                         </View>
@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     },
     finalText: {
-        flex: 1,
         margin: 2,
         minHeight: 35,
         fontSize: 30,
