@@ -6,10 +6,14 @@ import {createStore} from 'redux';
 import {Provider, connect} from 'react-redux';
 import reducer from './reducers';
 import middleware from './middleware';
+import {setLocalNotification} from "./util/notifications";
 
 const store = createStore(reducer, middleware);
 
 class App extends React.Component {
+    componentDidMount() {
+        setLocalNotification();
+    }
 
     state = {
         isLoadingComplete: false,

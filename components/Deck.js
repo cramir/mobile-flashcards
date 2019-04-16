@@ -21,7 +21,7 @@ const Deck = ({deck, navigation, dispatch}) => {
                 {deck.title}
             </Text>
             <Text>{deck.cards.length} Cards</Text>
-            {deck.cards.length > 0 && <Btn onPress={()=>navigation.navigate("Quiz",{deck:deck})}>
+            {deck.cards.length > 0 && <Btn onPress={()=>navigation.navigate("Quiz",{deck})}>
                 Quiz
             </Btn>}
             <Btn onPress={()=>navigation.navigate("AddCard",{index:deck.index})}>

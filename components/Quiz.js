@@ -41,6 +41,7 @@ class Quiz extends Component {
                 <Text style={styles.finalText}>{deck.title}</Text>
                 <Text style={styles.finalText}>score: {`${score} / ${deck.cards.length}`}</Text>
                 <View style={styles.btnView}>
+                    <Btn onPress={() => navigation.navigate("Quiz", {deck})}>Retry quiz</Btn>
                     <Btn onPress={() => navigation.navigate("Deck", {index: deck.index})}>Back to Deck</Btn>
                     <Btn onPress={() => navigation.navigate("Home")}>Home</Btn>
                 </View>
